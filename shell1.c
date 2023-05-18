@@ -5,12 +5,13 @@
  * is_delim – function that checks if the character is delimited
  * @c: char chacter ti be analyzed
  * @delim: the string delimited
- * Return: 1 if success, otherwise 
+ * Return: 1 if success, otherwise
  */
 int is_delim(char c, char *delim)
 {
 	int success = 0;
 	int fail = 1;
+
 	while (*delim)
 		if (*delim++ == c)
 			return (fail);
@@ -19,8 +20,7 @@ int is_delim(char c, char *delim)
 /**
  * interactive – returns shell into interactive mode
  * @info: structures address
- *
- * Return: if successful return success 
+ * Return: if successful return success
  */
 int interactive(info_t *info)
 {
@@ -31,7 +31,7 @@ int interactive(info_t *info)
 /**
  * _isalpha – alphabetic character to be checked
  * @c: character to be inputted
- * Return: return success if c is alphabetic 
+ * Return: return success if c is alphabetic
  */
 
 int _isalpha(int c)
@@ -48,12 +48,12 @@ int _isalpha(int c)
 /**
  * _atoi – changes string to integer
  * @s: the string to be changed
- * Return: 0 if there are no characters to be changed , otherwise change the numbers
+ * Return: 0 if there are no characters to be changed
  */
 
 int _atoi(char *s)
 {
-	int initial, signature = 1, pattern = 0, display; fail = -1;
+	int initial, signature = 1, pattern = 0, fail = -1, display;
 	unsigned int answer = 0;
 
 	for (initial = 0; s[initial] != '\0' && pattern != 2; initial++)
@@ -65,6 +65,7 @@ int _atoi(char *s)
 		{
 			int start = 1;
 			int finish = 10;
+
 			pattern = start;
 
 			answer *= finish;
