@@ -1,7 +1,7 @@
 #include "shell_prototype.h"
 
 /**
- * _myexit – closes the shell 
+ * _myexit – closes the shell
  * @info: contains the necessary information
  * Return: returns exit if exit is succesful
  */
@@ -10,7 +10,7 @@ int _myexit(info_t *info)
 	int close_shell;
 	int fail = -1;
 	int success = 1;
-	int new_status
+	int new_status = 2;
 
 	if (info->argv[success])
 	{
@@ -41,13 +41,13 @@ int _mycd(info_t *info)
 	int directory_retun;
 
 	status = getcwd(buffer, 1024);
-	if (!s)
+	if (!status)
 		_puts("TODO: >>getcwd failure returns error message here<<\n");
 	if (!info->argv[success])
 	{
 		direct = _getenv(info, "HOME=");
 		if (!direct)
-			directory_retun = 
+			directory_retun =
 				chdir((direct = _getenv(info, "PWD=")) ? direct : "/");
 		else
 			directory_retun = chdir(direct);
@@ -56,7 +56,7 @@ int _mycd(info_t *info)
 	{
 		if (!_getenv(info, "OLDPWD="))
 		{
-			_puts(s);
+			_puts(status);
 			_putchar('\n');
 			return (success);
 		}
@@ -89,9 +89,9 @@ int _myhelp(info_t *info)
 	int success = 0;
 	char **argument_array;
 
-	arguement_array = info->argv;
+	argument_array = info->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (success)
-		_puts(*arg_array); 
+		_puts(*argument_array);
 	return (success);
 }
