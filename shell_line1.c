@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shell_prototype.h"
 
 /**
  * _setenv – declares an environmental variable or changes it
@@ -27,19 +27,19 @@ int _setenv(info_t *info, char *var, char *value)
 	node = info->env;
 	while (node)
 	{
-		point = starts_with(node->str, var);
+		point = starts_with(node->string_check, var);
 		if (point && *point == '=')
 		{
-			free(node->str);
-			node->str = buffer;
-			info->env_changed = consant_num;
+			free(node->string_check);
+			node->string_check = buffer;
+			info->env_change = constant_num;
 			return (success);
 		}
 		node = node->next;
 	}
 	add_node_end(&(info->env), buffer, success);
 	free(buffer);
-	info->env_changed = constant_num;
+	info->env_change = constant_num;
 	return (success);
 }
 
@@ -61,10 +61,10 @@ int _unsetenv(info_t *info, char *var)
 
 	while (node)
 	{
-		point = starts_with(node->str, var);
+		point = starts_with(node->string_check, var);
 		if (point && *point == '=')
 		{
-			info->env_changed = delete_node_at_index(&(info->env), intial);
+			info->env_change = delete_node_at_index(&(info->env), initial);
 			initial = 0;
 			node = info->env;
 			continue;
@@ -72,21 +72,21 @@ int _unsetenv(info_t *info, char *var)
 		node = node->next;
 		initial++;
 	}
-	return (info->env_changed);
+	return (info->env_change);
 }
 /**
  * get_environ - returns the string array copy of our environ
- * @info: Structure containing parameters needed 
+ * @info: Structure containing parameters needed
  * Return: Always 0 sucess
  */
 char **get_environ(info_t *info)
 {
-	if (!info->environ || info->env_changed)
+	if (!info->environ || info->env_change)
 	{
 		int success = 0;
 
 		info->environ = list_to_strings(info->env);
-		info->env_changed = success;
+		info->env_change = success;
 	}
 
 	return (info->environ);
