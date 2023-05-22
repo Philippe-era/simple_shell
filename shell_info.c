@@ -67,8 +67,10 @@ void free_info(info_t *info, int all)
 void clear_info(info_t *info)
 {
 	int success = 0;
+
 	info->arg = NULL;
 	info->argv = NULL;
 	info->path = NULL;
 	info->argc = success;
+}
 }
