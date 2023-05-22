@@ -17,7 +17,7 @@ char *_strncat(char *dest, char *src, int n)
 	join = 0;
 	while (dest[initial] != '\0')
 		initial++;
-	while (src[join] != '\0' && j < n)
+	while (src[join] != '\0' && join < n)
 	{
 		dest[initial] = src[join];
 		initial++;
@@ -27,7 +27,6 @@ char *_strncat(char *dest, char *src, int n)
 		dest[initial] = '\0';
 	return (slide);
 }
-	
 /**
  **_strchr – places a string to be channged
  *@s: string to be changed
@@ -54,11 +53,12 @@ char *_strchr(char *s, char c)
 char *_strncpy(char *dest, char *src, int n)
 {
 	int initial, join;
-	int cinstant_num = 1;
+	int constant_num = 1;
 	char *slide = dest;
 
 	initial = 0;
-	while (src[initial] != '\0' && initial < n – constant_num)
+
+	while (src[initial] != '\0' && initial < n )
 	{
 		dest[initial] = src[initial];
 		initial++;
