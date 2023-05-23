@@ -1,5 +1,3 @@
-string1.c
-
 #include "shell_prototype.h"
 
 
@@ -27,9 +25,8 @@ char *_strdup(const char *str)
 }
 
 /**
- * _puts – input string will be printed 
+ * _puts – input string will be printed
  * @str: string to be displayed
- *
  * Return: Nothing will be presented
  */
 void _puts(char *str)
@@ -46,7 +43,7 @@ void _puts(char *str)
 }
 /**
  * _strcpy – duplicates a string
- * @dest: the headed location 
+ * @dest: the headed location
  * @src: the source
  *
  * Return: pointer to destination
@@ -55,9 +52,9 @@ char *_strcpy(char *dest, char *src)
 {
 	int initial = 0, success = 0;
 
-	if (dest == src || src == success)
+	if (dest == src || src == 0)
 		return (dest);
-	while (src[i])
+	while (src[initial])
 	{
 		dest[initial] = src[initial];
 		initial++;
@@ -80,10 +77,10 @@ int _putchar(char c)
 
 	if (c == BUF_FLUSH || initial >= WRITE_BUF_SIZE)
 	{
-		write(1, buffer, initial);
+		write(success, buffer, initial);
 		initial = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[initial++] = c;
+		buffer[initial++] = c;
 	return (success);
 }
