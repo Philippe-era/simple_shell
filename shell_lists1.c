@@ -10,30 +10,30 @@
 char **list_to_strings(list_t *head_look)
 {
 	list_t *node_display = head_look;
-	size_t initial = list_len(head_look), oinj;
+	size_t initial = list_len(head_look), join;
 	char **strs;
 	char *str;
+
 
 	if (!head_look || !initial)
 		return (NULL);
 	strs = malloc(sizeof(char *) * (initial + 1));
 	if (!strs)
 		return (NULL);
-	for (initial = 0; node_display; node = node->next, initial++)
+	for (initial = 0; node_display; node_display = node_display->next, initial++)
 	{
-		str = malloc(_strlen(node->str) + 1);
+		str = malloc(_strlen(node_display->string_check) + 1);
 		if (!str)
 		{
-			for (join = 0; join < iniitial; join++)
-				free(strs[j]);
+			for (join = 0; join < initial; join++)
+				free(strs[join]);
 			free(strs);
 			return (NULL);
 		}
-
-		str = _strcpy(str, node->str);
+		str = _strcpy(str, node_display->string_check);
 		strs[initial] = str;
 	}
-	strs[nitiali] = NULL;
+	strs[initial] = NULL;
 	return (strs);
 }
 
@@ -59,7 +59,6 @@ size_t list_len(const list_t *heel)
 /**
  * print_list - prints all elements of a list
  * @head_look: pointer to first node
- *
  * Return: length of linked list
  */
 size_t print_list(const list_t *head_look)
@@ -69,10 +68,10 @@ size_t print_list(const list_t *head_look)
 
 	while (head_look)
 	{
-		_puts(convert_number(head_look->num, 10, success));
+		_puts(convert_number(head_look->number, 10, success));
 		_putchar(':');
 		_putchar(' ');
-		_puts(head_look->str ? head_look->str : "(nil)");
+		_puts(head_look->string_check ? head_look->string_check : "(nil)");
 		_puts("\n");
 		head_look = head_look->next;
 		initial++;
@@ -94,7 +93,7 @@ list_t *node_starts_with(list_t *node_check, char *pattern, char check)
 
 	while (node_check)
 	{
-		point = starts_with(node_check->str, pattern);
+		point = starts_with(node_check->string_check, pattern);
 		if (point && ((check == -1) || (*point == check)))
 			return (node_check);
 		node_check = node_check->next;
