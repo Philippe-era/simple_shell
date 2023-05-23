@@ -9,8 +9,8 @@
  */
 int _strcmp(char *s1, char *s2)
 {
-	int success = 1, fail=0 , fail_check = -1;
-	
+	int success = 1, fail = 0, fail_check = -1;
+
 	while (*s1 && *s2)
 	{
 		if (*s1 != *s2)
@@ -21,7 +21,7 @@ int _strcmp(char *s1, char *s2)
 	if (*s1 == *s2)
 		return (fail);
 	else
-		return (*s1 < *s2 ? fail_checker: success);
+		return (*s1 < *s2 ? fail_check : success);
 }
 
 /**
@@ -68,12 +68,12 @@ int _strlen(char *s)
  */
 char *_strcat(char *dest, char *src)
 {
-	char *return = dest;
+	char *result = dest;
 
 	while (*dest)
 		dest++;
 	while (*src)
 		*dest++ = *src++;
 	*dest = *src;
-	return (return);
+	return (result);
 }
