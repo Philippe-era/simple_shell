@@ -8,6 +8,7 @@
 int bfree(void **pointer_check)
 {
 	int success = 1, fail = 0;
+	
 	if (pointer_check && *pointer_check)
 	{
 		free(*pointer_check);

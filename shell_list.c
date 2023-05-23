@@ -1,4 +1,4 @@
-#include "shell_prototype..h"
+#include "shell_prototype.h"
 
 
 /**
@@ -43,7 +43,7 @@ list_t *add_node_end(list_t **header_look, const char *string_check, int number_
 }
 
 /**
- * print_list_str – displays the elements 
+ * print_list_str – displays the elements
  * @hat_look: the first node to be checked
  *
  * Return: length of pointer
