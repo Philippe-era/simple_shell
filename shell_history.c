@@ -89,11 +89,11 @@ int read_history(info_t *info)
 		if (buffer[initial] == '\n')
 		{
 			buffer[initial] = 0;
-			build_history_list(info, buffer + last_number, last_number++);
+			build_history_list(info, buffer + last_number, linecount++);
 			last_number = initial + 1;
 		}
 	if (last_number != initial)
-		build_history_list(info, buffer + last_number, last_number++);
+		build_history_list(info, buffer + last_number, linecount++);
 	free(buffer);
 	info->history_count = last_number;
 	while (info->history_count-- >= HIST_MAX)

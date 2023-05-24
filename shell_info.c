@@ -2,13 +2,26 @@
 
 
 /**
+ * clear_info - declares info_tfor later use
+ * @info: Structure address contaoinging necessary info
+ */
+void clear_info(info_t *info)
+{
+	info->arg = NULL;
+	info->argv = NULL;
+	info->path = NULL;
+	info->argc = 0;
+}
+
+
+/**
  * set_info – declares the structure
  * @info: Structure with memory address
  * @av: argument vector for this program:
  */
 void set_info(info_t *info, char **av)
 {
-	int initial = 0, first_num, second_num = 0;
+	int initial = 0, first_num = 1, second_num = 0;
 
 	info->file_name = av[second_num];
 	if (info->arg)
@@ -59,18 +72,6 @@ void free_info(info_t *info, int all)
 			close(info->readfd);
 		_putchar(BUF_FLUSH);
 	}
-
-/**
- * clear_info – declares the structure info
- * @info: structure memory address
- */
-void clear_info(info_t *info)
-{
-	int success = 0;
-
-	info->arg = NULL;
-	info->argv = NULL;
-	info->path = NULL;
-	info->argc = success;
 }
-}
+
+
