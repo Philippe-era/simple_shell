@@ -41,7 +41,7 @@ char **strtow2(char *str, char d)
 			free(slide);
 			return (NULL);
 		}
-		for (main_num; main_num < other_num; main_num++)
+		for (main_num = 0; main_num < other_num; main_num++)
 			slide[join][main_num] = str[initial++];
 		slide[join][main_num] = stabilized_num;
 	}
