@@ -9,7 +9,7 @@
  */
 int main(int accurate, char **accurate_vec)
 {
-	info_t info[] = { INFO_INIT };
+	info_t info[] = { { 0 } };
 	int file_description = 2, fail = -1, exit_cmd = 126, enter_cmd = 127;
 	int success = 1;
 
@@ -36,11 +36,11 @@ int main(int accurate, char **accurate_vec)
 			}
 			return (EXIT_FAILURE);
 		}
-		information->readfd = file_description;
+		info->readfd = file_description;
 	}
-	populate_env_list(information);
-	read_history(information);
-	hsh(information, accurate_vec);
+	populate_env_list(info);
+	read_history(info);
+	hsh(info, accurate_vec);
 	return (EXIT_SUCCESS);
 }
 
