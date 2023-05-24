@@ -7,7 +7,7 @@
  */
 int bfree(void **pointer_check)
 {
-	int success = 1, fail = 0;
+	int success = 1;
 	
 	if (pointer_check && *pointer_check)
 	{
@@ -15,5 +15,5 @@ int bfree(void **pointer_check)
 		*pointer_check = NULL;
 		return (success);
 	}
-	return (fail);
+	return (-1);
 }
