@@ -9,7 +9,7 @@
  */
 int main(int accurate, char **accurate_vec)
 {
-	info_t information[] = { INFO_INIT };
+	info_t info[] = { INFO_INIT };
 	int file_description = 2, fail = -1, exit_cmd = 126, enter_cmd = 127;
 	int success = 1;
 

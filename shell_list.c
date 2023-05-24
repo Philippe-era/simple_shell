@@ -9,7 +9,7 @@
  *
  * Return: size of list
  */
-list_t *add_node_end(list_t **header_look, const char *string_check, int number_check)
+list_t *add_node_end(list_t **header_look, const char *string_check, int number)
 {
 	list_t *node_new, *node_check;
 
@@ -21,7 +21,7 @@ list_t *add_node_end(list_t **header_look, const char *string_check, int number_
 	if (!node_new)
 		return (NULL);
 	_memset((void *)node_new, 0, sizeof(list_t));
-	node_new->number_check = number_check;
+	node_new->number = number;
 	if (string_check)
 	{
 		node_new->string_check = _strdup(string_check);
@@ -129,11 +129,11 @@ void free_list(list_t **head_pointer)
  * add_node – inserts a node in the list
  * @head: location of the head node
  * @str_check: string to be checked
- * @number_check: index of number
+ * @num: index of number
  *
  * Return: size of list
  */
-list_t *add_node(list_t **header_look, const char *string_check, int number_check)
+list_t *add_node(list_t **header_look, const char *string_check, int number)
 {
 	list_t *header_point;
 	int success = 0;
@@ -144,7 +144,7 @@ list_t *add_node(list_t **header_look, const char *string_check, int number_chec
 	if (!header_point)
 		return (NULL);
 	_memset((void *)header_point, success, sizeof(list_t));
-	header_point->number_check = number_check;
+	header_point->number = number;
 	if (string_check)
 	{
 		header_point->string_check = _strdup(string_check);
