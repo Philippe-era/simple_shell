@@ -50,7 +50,7 @@ int replace_alias(info_t *info)
 	char *point;
 
 	initial = 0;
-	for (initial; initial < 10; initial++)
+	for (initial = 0; initial < 10; initial++)
 	{
 		node_check = node_starts_with(info->alias, info->argv[0], '=');
 		if (!node_check)
