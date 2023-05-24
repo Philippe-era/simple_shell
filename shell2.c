@@ -12,18 +12,18 @@ int _myexit(info_t *info)
 	int success = 1;
 	int new_status = 2;
 
-	if (info->argv[success])
+	if (info->argv[1])
 	{
-		close_shell = _erratoi(info->argv[success]);
+		close_shell = _erratoi(info->argv[1]);
 		if (close_shell == fail)
 		{
 			info->status = new_status;
 			print_error(info, "Illegal number: ");
-			_eputs(info->argv[success]);
+			_eputs(info->argv[1]);
 			_eputchar('\n');
 			return (success);
 		}
-		info->err_num = _erratoi(info->argv[success]);
+		info->err_num = _erratoi(info->argv[1]);
 		return (-new_status);
 	}
 	info->err_num = fail;
@@ -43,7 +43,7 @@ int _mycd(info_t *info)
 	status = getcwd(buffer, 1024);
 	if (!status)
 		_puts("TODO: >>getcwd failure returns error message here<<\n");
-	if (!info->argv[success])
+	if (!info->argv[1])
 	{
 		direct = _getenv(info, "HOME=");
 		if (!direct)
@@ -52,7 +52,7 @@ int _mycd(info_t *info)
 		else
 			directory_retun = chdir(direct);
 	}
-	else if (_strcmp(info->argv[success], "-") == 0)
+	else if (_strcmp(info->argv[1], "-") == 0)
 	{
 		if (!_getenv(info, "OLDPWD="))
 		{
@@ -65,11 +65,11 @@ int _mycd(info_t *info)
 			chdir((direct = _getenv(info, "OLDPWD=")) ? direct : "/");
 	}
 	else
-		directory_retun = chdir(info->argv[success]);
+		directory_retun = chdir(info->argv[1]);
 	if (directory_retun == fail)
 	{
 		print_error(info, "can't cd to ");
-		_eputs(info->argv[success]), _eputchar('\n');
+		_eputs(info->argv[1]), _eputchar('\n');
 	}
 	else
 	{

@@ -42,7 +42,7 @@ char *_getenv(info_t *info, const char *name)
  */
 int _myunsetenv(info_t *info)
 {
-	int increment;
+	
 	int initial = 1;
 	int success = 1;
 	int final = 0;
@@ -52,8 +52,8 @@ int _myunsetenv(info_t *info)
 		_eputs("Too few arguements.\n");
 		return (success);
 	}
-	for (initial; initial <= info->argc; initial++)
-		_unsetenv(info, info->argv[increment]);
+	for (initial = 1; initial <= info->argc; initial++)
+		_unsetenv(info, info->argv[initial]);
 
 	return (final);
 }

@@ -53,7 +53,6 @@ char *_strchr(char *s, char c)
 char *_strncpy(char *dest, char *src, int n)
 {
 	int initial, join;
-	int constant_num = 1;
 	char *slide = dest;
 
 	initial = 0;

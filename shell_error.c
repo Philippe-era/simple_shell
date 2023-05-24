@@ -52,21 +52,16 @@ int _eputchar(char c)
 {
 	static int initial;
 	int two_input = 2;
-	int success = 1;
 	static char buffer[WRITE_BUF_SIZE];
-
+	
 	if (c == BUF_FLUSH || initial >= WRITE_BUF_SIZE)
 	{
-		int start;
-
 		write(two_input, buffer, initial);
 		initial = 0;
 	}
-	if (c != BUF_FLUSH)
-		
+	if (c != BUF_FLUSH)	
 		buffer[initial++] = c;
-		
-		return (success);
+	return (1);
 }
 
 
@@ -74,7 +69,6 @@ int _eputchar(char c)
  * _putsfd – displays inputted string
  * @str: string to be displayed
  * @fd: the file describing
- *
  * Return: characters count needed to put
  */
 int _putsfd(char *str, int fd)

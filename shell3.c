@@ -106,7 +106,7 @@ int _myalias(info_t *info)
 		}
 		return (success);
 	}
-	for (initial ; info->argv[initial]; initial++)
+	for (initial = 1; info->argv[initial]; initial++)
 	{
 		point = _strchr(info->argv[initial], '=');
 		if (point)

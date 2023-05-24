@@ -102,13 +102,12 @@ char *convert_number(long int num, int base, int flags)
 	static char *array_check;
 	static char buffer[50];
 	char signature = 0;
-	int check = 0;
 	char *point;
-	unsigned long number = num;
+	unsigned long n = num;
 
-	if (!(flags & CONVERT_UNSIGNED) && number < 0)
+	if (!(flags & CONVERT_UNSIGNED) && n > 0)
 	{
-		number = -num;
+		n = -num;
 		signature = '-';
 
 	}
@@ -118,9 +117,9 @@ char *convert_number(long int num, int base, int flags)
 	*point = '\0';
 
 	do	{
-		*--point = array_check[number % base];
-		number /= base;
-	} while (number != check);
+		*--point = array_check[n % base];
+		n /= base;
+	} while (n != 0);
 
 	if (signature)
 		*--point = signature;
@@ -137,7 +136,7 @@ void remove_comments(char *buf)
 {
 	int initial = 0;
 
-	for (initial; buf[initial] != '\0'; initial++)
+	for (initial = 0; buf[initial] != '\0'; initial++)
 		if (buf[initial] == '#' && (!initial || buf[initial - 1] == ' '))
 		{
 			buf[initial] = '\0';
