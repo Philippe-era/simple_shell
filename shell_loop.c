@@ -62,8 +62,8 @@ int find_builtin(info_t *info)
 		{NULL, NULL}
 	};
 
-	for (initial = 0; build_array[initial].type; initial++)
-		if (_strcmp(info->argv[0], build_array[i].type) == 0)
+	for (initial = 0; build_array[initial].kind; initial++)
+		if (_strcmp(info->argv[0], build_array[initial].kind) == 0)
 		{
 			info->line_err_count++;
 			build = build_array[initial].func(info);
@@ -115,7 +115,7 @@ void find_cmd(info_t *info)
 
 /**
  * fork_cmd – cmd to be executed
- * @info: Structure containing info necessary to run 
+ * @info: Structure containing info necessary to run
  *
  * Return: void
  */
@@ -140,7 +140,6 @@ void fork_cmd(info_t *info)
 				exit(126);
 			exit(exit_cmd);
 		}
-		
 	}
 	else
 	{
